@@ -1,0 +1,11 @@
+FROM ubuntu
+
+COPY ssh-key/id_rsa /root/.ssh/id_rsa
+
+RUN apt update -y && \
+    apt install -y ansible && \
+    mkdir /ansible && \
+    chmod 700 /root/.ssh && \
+    chmod 600 /root/.ssh/id_rsa
+
+WORKDIR /ansible

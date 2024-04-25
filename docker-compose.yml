@@ -1,0 +1,34 @@
+services:
+  ansible-master:
+    build: 
+      context: src
+      dockerfile: Dockerfile-ansible
+    container_name: ansible-master
+    hostname: ansible-master
+    tty: true
+    volumes:
+      - ./ansible:/ansible
+
+  target01:
+    build:
+      context: src
+      dockerfile: Dockerfile-target
+    container_name: target01
+    hostname: target01
+    tty: true
+
+  target02:
+    build:
+      context: src
+      dockerfile: Dockerfile-target
+    container_name: target02
+    hostname: target02
+    tty: true
+
+  target03:
+    build:
+      context: src
+      dockerfile: Dockerfile-target
+    container_name: target03
+    hostname: target03
+    tty: true
